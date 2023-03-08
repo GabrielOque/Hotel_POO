@@ -233,7 +233,7 @@ namespace Hotel.Formulario
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-          
+            this.Close();
         }
 
         void Limpiar()

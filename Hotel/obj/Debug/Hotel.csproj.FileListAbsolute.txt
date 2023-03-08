@@ -11,3 +11,4 @@ C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.exe
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.pdb
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmCliente.resources
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmHabitacion.resources
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmMenuPrincipal.resources

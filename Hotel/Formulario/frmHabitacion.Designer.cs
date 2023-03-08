@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHabitacion));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,14 +52,11 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnFondo = new System.Windows.Forms.Button();
-            this.hotelDataSet = new Hotel.HotelDataSet();
-            this.tblTipoHabitacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblTipoHabitacionTableAdapter = new Hotel.HotelDataSetTableAdapters.tblTipoHabitacionTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTipoHabitacionBindingSource)).BeginInit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLimitePersonas = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,7 +71,6 @@
             this.label1.Size = new System.Drawing.Size(228, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Numero de habitación:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -83,9 +78,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(99, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 25);
+            this.label2.Size = new System.Drawing.Size(195, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Numero de habitación:";
+            this.label2.Text = "Tipo de habitación:";
             // 
             // label3
             // 
@@ -93,9 +88,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(99, 165);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 25);
+            this.label3.Size = new System.Drawing.Size(189, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Numero de habitación:";
+            this.label3.Text = "Tamño habitación:";
             // 
             // txtNumHabitacion
             // 
@@ -112,12 +107,9 @@
             this.txtTamanoHabitacion.Name = "txtTamanoHabitacion";
             this.txtTamanoHabitacion.Size = new System.Drawing.Size(229, 31);
             this.txtTamanoHabitacion.TabIndex = 4;
-            this.txtTamanoHabitacion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // cmbTipoHabitacion
             // 
-            this.cmbTipoHabitacion.DataSource = this.tblTipoHabitacionBindingSource;
-            this.cmbTipoHabitacion.DisplayMember = "descripcion";
             this.cmbTipoHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoHabitacion.FormattingEnabled = true;
             this.cmbTipoHabitacion.Location = new System.Drawing.Point(361, 117);
@@ -166,7 +158,7 @@
             // 
             this.rdbMiniBarNo.AutoSize = true;
             this.rdbMiniBarNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMiniBarNo.Location = new System.Drawing.Point(138, 38);
+            this.rdbMiniBarNo.Location = new System.Drawing.Point(17, 93);
             this.rdbMiniBarNo.Name = "rdbMiniBarNo";
             this.rdbMiniBarNo.Size = new System.Drawing.Size(57, 29);
             this.rdbMiniBarNo.TabIndex = 12;
@@ -178,7 +170,7 @@
             // 
             this.rdbAireAcondicionadoNo.AutoSize = true;
             this.rdbAireAcondicionadoNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbAireAcondicionadoNo.Location = new System.Drawing.Point(142, 30);
+            this.rdbAireAcondicionadoNo.Location = new System.Drawing.Point(80, 30);
             this.rdbAireAcondicionadoNo.Name = "rdbAireAcondicionadoNo";
             this.rdbAireAcondicionadoNo.Size = new System.Drawing.Size(57, 29);
             this.rdbAireAcondicionadoNo.TabIndex = 13;
@@ -190,7 +182,7 @@
             // 
             this.rdbServicioAlCuartoNo.AutoSize = true;
             this.rdbServicioAlCuartoNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbServicioAlCuartoNo.Location = new System.Drawing.Point(171, 30);
+            this.rdbServicioAlCuartoNo.Location = new System.Drawing.Point(95, 34);
             this.rdbServicioAlCuartoNo.Name = "rdbServicioAlCuartoNo";
             this.rdbServicioAlCuartoNo.Size = new System.Drawing.Size(57, 29);
             this.rdbServicioAlCuartoNo.TabIndex = 14;
@@ -201,7 +193,7 @@
             // btnPrimero
             // 
             this.btnPrimero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrimero.Location = new System.Drawing.Point(148, 414);
+            this.btnPrimero.Location = new System.Drawing.Point(142, 452);
             this.btnPrimero.Name = "btnPrimero";
             this.btnPrimero.Size = new System.Drawing.Size(80, 34);
             this.btnPrimero.TabIndex = 15;
@@ -211,7 +203,7 @@
             // btnAnterior
             // 
             this.btnAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnterior.Location = new System.Drawing.Point(247, 414);
+            this.btnAnterior.Location = new System.Drawing.Point(241, 452);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(80, 34);
             this.btnAnterior.TabIndex = 16;
@@ -221,7 +213,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(344, 414);
+            this.btnSiguiente.Location = new System.Drawing.Point(338, 452);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(80, 34);
             this.btnSiguiente.TabIndex = 17;
@@ -231,7 +223,7 @@
             // btnUltimo
             // 
             this.btnUltimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUltimo.Location = new System.Drawing.Point(441, 414);
+            this.btnUltimo.Location = new System.Drawing.Point(435, 452);
             this.btnUltimo.Name = "btnUltimo";
             this.btnUltimo.Size = new System.Drawing.Size(80, 34);
             this.btnUltimo.TabIndex = 18;
@@ -241,18 +233,17 @@
             // btnConsulta
             // 
             this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(49, 472);
+            this.btnConsulta.Location = new System.Drawing.Point(48, 506);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(121, 34);
             this.btnConsulta.TabIndex = 19;
             this.btnConsulta.Text = "Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
-            this.btnConsulta.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnIngreso
             // 
             this.btnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngreso.Location = new System.Drawing.Point(180, 472);
+            this.btnIngreso.Location = new System.Drawing.Point(179, 506);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(121, 34);
             this.btnIngreso.TabIndex = 20;
@@ -262,7 +253,7 @@
             // btnModificacion
             // 
             this.btnModificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificacion.Location = new System.Drawing.Point(322, 472);
+            this.btnModificacion.Location = new System.Drawing.Point(321, 506);
             this.btnModificacion.Name = "btnModificacion";
             this.btnModificacion.Size = new System.Drawing.Size(151, 34);
             this.btnModificacion.TabIndex = 21;
@@ -272,7 +263,7 @@
             // btnRetiro
             // 
             this.btnRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetiro.Location = new System.Drawing.Point(489, 472);
+            this.btnRetiro.Location = new System.Drawing.Point(488, 506);
             this.btnRetiro.Name = "btnRetiro";
             this.btnRetiro.Size = new System.Drawing.Size(121, 34);
             this.btnRetiro.TabIndex = 22;
@@ -309,41 +300,26 @@
             this.btnFondo.TabIndex = 25;
             this.btnFondo.UseVisualStyleBackColor = true;
             // 
-            // hotelDataSet
-            // 
-            this.hotelDataSet.DataSetName = "HotelDataSet";
-            this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblTipoHabitacionBindingSource
-            // 
-            this.tblTipoHabitacionBindingSource.DataMember = "tblTipoHabitacion";
-            this.tblTipoHabitacionBindingSource.DataSource = this.hotelDataSet;
-            // 
-            // tblTipoHabitacionTableAdapter
-            // 
-            this.tblTipoHabitacionTableAdapter.ClearBeforeFill = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rdbServicioAlCuartoSi);
             this.groupBox1.Controls.Add(this.rdbServicioAlCuartoNo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(104, 218);
+            this.groupBox1.Location = new System.Drawing.Point(104, 274);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(234, 69);
+            this.groupBox1.Size = new System.Drawing.Size(214, 69);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Servicio al cliente";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rdbAireAcondicionadoSi);
             this.groupBox2.Controls.Add(this.rdbAireAcondicionadoNo);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(361, 218);
+            this.groupBox2.Location = new System.Drawing.Point(107, 359);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(229, 69);
+            this.groupBox2.Size = new System.Drawing.Size(214, 69);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Aire acondicionado";
@@ -353,19 +329,39 @@
             this.groupBox3.Controls.Add(this.rdbMiniBarSi);
             this.groupBox3.Controls.Add(this.rdbMiniBarNo);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(229, 304);
+            this.groupBox3.Location = new System.Drawing.Point(361, 286);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(224, 73);
+            this.groupBox3.Size = new System.Drawing.Size(147, 142);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "MiniBar";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(99, 215);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(200, 25);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Limite de personas:";
+            // 
+            // txtLimitePersonas
+            // 
+            this.txtLimitePersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLimitePersonas.Location = new System.Drawing.Point(361, 215);
+            this.txtLimitePersonas.Name = "txtLimitePersonas";
+            this.txtLimitePersonas.Size = new System.Drawing.Size(229, 31);
+            this.txtLimitePersonas.TabIndex = 30;
             // 
             // frmHabitacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1078, 527);
+            this.ClientSize = new System.Drawing.Size(1078, 697);
+            this.Controls.Add(this.txtLimitePersonas);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -390,8 +386,6 @@
             this.Name = "frmHabitacion";
             this.Text = "frmHabitacion";
             this.Load += new System.EventHandler(this.frmHabitacion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTipoHabitacionBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -428,11 +422,10 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnFondo;
-        private HotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource tblTipoHabitacionBindingSource;
-        private HotelDataSetTableAdapters.tblTipoHabitacionTableAdapter tblTipoHabitacionTableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLimitePersonas;
     }
 }
