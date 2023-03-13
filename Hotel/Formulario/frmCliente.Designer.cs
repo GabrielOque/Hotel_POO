@@ -184,6 +184,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(342, 31);
             this.txtCedula.TabIndex = 6;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
             // btnPrimero

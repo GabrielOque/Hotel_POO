@@ -159,15 +159,11 @@ namespace Hotel.Formulario
                 case 2:
                     if(dt.Rows.Count > 0)
                     {
+                        
+                        Llenar(dt, 0);
                         MessageBox.Show("La cedula ya estas registrada");
-                        Limpiar();
-                        txtCedula.Focus();
                     }
-                    else
-                    {
-                        cmd = new SqlCommand("insert into tblCliente values ('" + txtCedula.Text + "', '" + txtNRSoacial.Text + "' , '" + txtDireccion.Text + "', '" + txtTelefono.Text + "', '" + txtPProcedencia.Text + "', '" + txtCProcedencia.Text + "')", cn.AbrirConexion());
-                      
-                    }
+                   
                     break;
                 case 3:
                     if (dt.Rows.Count == 0)
@@ -234,6 +230,11 @@ namespace Hotel.Formulario
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         void Limpiar()

@@ -95,10 +95,11 @@
             // txtNumHabitacion
             // 
             this.txtNumHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumHabitacion.Location = new System.Drawing.Point(361, 68);
+            this.txtNumHabitacion.Location = new System.Drawing.Point(361, 67);
             this.txtNumHabitacion.Name = "txtNumHabitacion";
             this.txtNumHabitacion.Size = new System.Drawing.Size(229, 31);
             this.txtNumHabitacion.TabIndex = 3;
+            this.txtNumHabitacion.Leave += new System.EventHandler(this.txtNumHabitacion_Leave);
             // 
             // txtTamanoHabitacion
             // 
@@ -110,6 +111,7 @@
             // 
             // cmbTipoHabitacion
             // 
+            this.cmbTipoHabitacion.DisplayMember = "IdTipo";
             this.cmbTipoHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoHabitacion.FormattingEnabled = true;
             this.cmbTipoHabitacion.Location = new System.Drawing.Point(361, 117);
@@ -117,6 +119,7 @@
             this.cmbTipoHabitacion.Size = new System.Drawing.Size(229, 33);
             this.cmbTipoHabitacion.TabIndex = 5;
             this.cmbTipoHabitacion.ValueMember = "IdTipo";
+            this.cmbTipoHabitacion.SelectedIndexChanged += new System.EventHandler(this.cmbTipoHabitacion_SelectedIndexChanged);
             // 
             // rdbServicioAlCuartoSi
             // 
@@ -199,6 +202,7 @@
             this.btnPrimero.TabIndex = 15;
             this.btnPrimero.Text = "|<";
             this.btnPrimero.UseVisualStyleBackColor = true;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
             // btnAnterior
             // 
@@ -209,6 +213,7 @@
             this.btnAnterior.TabIndex = 16;
             this.btnAnterior.Text = "<<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSiguiente
             // 
@@ -219,6 +224,7 @@
             this.btnSiguiente.TabIndex = 17;
             this.btnSiguiente.Text = ">>";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnUltimo
             // 
@@ -229,6 +235,7 @@
             this.btnUltimo.TabIndex = 18;
             this.btnUltimo.Text = ">|";
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnConsulta
             // 
@@ -239,6 +246,7 @@
             this.btnConsulta.TabIndex = 19;
             this.btnConsulta.Text = "Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
             // btnIngreso
             // 
@@ -249,6 +257,7 @@
             this.btnIngreso.TabIndex = 20;
             this.btnIngreso.Text = "Ingreso";
             this.btnIngreso.UseVisualStyleBackColor = true;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // btnModificacion
             // 
@@ -259,6 +268,7 @@
             this.btnModificacion.TabIndex = 21;
             this.btnModificacion.Text = "Modificación";
             this.btnModificacion.UseVisualStyleBackColor = true;
+            this.btnModificacion.Click += new System.EventHandler(this.btnModificacion_Click);
             // 
             // btnRetiro
             // 
@@ -269,6 +279,7 @@
             this.btnRetiro.TabIndex = 22;
             this.btnRetiro.Text = "Retiro";
             this.btnRetiro.UseVisualStyleBackColor = true;
+            this.btnRetiro.Click += new System.EventHandler(this.btnRetiro_Click);
             // 
             // btnSalir
             // 
@@ -279,6 +290,7 @@
             this.btnSalir.Size = new System.Drawing.Size(60, 62);
             this.btnSalir.TabIndex = 23;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnGuardar
             // 
@@ -289,6 +301,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(63, 62);
             this.btnGuardar.TabIndex = 24;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnFondo
             // 

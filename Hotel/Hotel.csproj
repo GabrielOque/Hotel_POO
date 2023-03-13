@@ -71,6 +71,12 @@
     <Compile Include="Formulario\frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\frmReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmReserva.Designer.cs">
+      <DependentUpon>frmReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formulario\Form_LogIn.resx">
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\frmReserva.resx">
+      <DependentUpon>frmReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
