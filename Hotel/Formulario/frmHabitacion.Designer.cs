@@ -57,6 +57,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtLimitePersonas = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtValorNoche = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -196,7 +198,7 @@
             // btnPrimero
             // 
             this.btnPrimero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrimero.Location = new System.Drawing.Point(142, 452);
+            this.btnPrimero.Location = new System.Drawing.Point(142, 507);
             this.btnPrimero.Name = "btnPrimero";
             this.btnPrimero.Size = new System.Drawing.Size(80, 34);
             this.btnPrimero.TabIndex = 15;
@@ -207,7 +209,7 @@
             // btnAnterior
             // 
             this.btnAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnterior.Location = new System.Drawing.Point(241, 452);
+            this.btnAnterior.Location = new System.Drawing.Point(241, 507);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(80, 34);
             this.btnAnterior.TabIndex = 16;
@@ -218,7 +220,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(338, 452);
+            this.btnSiguiente.Location = new System.Drawing.Point(338, 507);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(80, 34);
             this.btnSiguiente.TabIndex = 17;
@@ -229,7 +231,7 @@
             // btnUltimo
             // 
             this.btnUltimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUltimo.Location = new System.Drawing.Point(435, 452);
+            this.btnUltimo.Location = new System.Drawing.Point(435, 507);
             this.btnUltimo.Name = "btnUltimo";
             this.btnUltimo.Size = new System.Drawing.Size(80, 34);
             this.btnUltimo.TabIndex = 18;
@@ -240,7 +242,7 @@
             // btnConsulta
             // 
             this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(48, 506);
+            this.btnConsulta.Location = new System.Drawing.Point(48, 561);
             this.btnConsulta.Name = "btnConsulta";
             this.btnConsulta.Size = new System.Drawing.Size(121, 34);
             this.btnConsulta.TabIndex = 19;
@@ -251,7 +253,7 @@
             // btnIngreso
             // 
             this.btnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngreso.Location = new System.Drawing.Point(179, 506);
+            this.btnIngreso.Location = new System.Drawing.Point(179, 561);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(121, 34);
             this.btnIngreso.TabIndex = 20;
@@ -262,7 +264,7 @@
             // btnModificacion
             // 
             this.btnModificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificacion.Location = new System.Drawing.Point(321, 506);
+            this.btnModificacion.Location = new System.Drawing.Point(321, 561);
             this.btnModificacion.Name = "btnModificacion";
             this.btnModificacion.Size = new System.Drawing.Size(151, 34);
             this.btnModificacion.TabIndex = 21;
@@ -273,7 +275,7 @@
             // btnRetiro
             // 
             this.btnRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetiro.Location = new System.Drawing.Point(488, 506);
+            this.btnRetiro.Location = new System.Drawing.Point(488, 561);
             this.btnRetiro.Name = "btnRetiro";
             this.btnRetiro.Size = new System.Drawing.Size(121, 34);
             this.btnRetiro.TabIndex = 22;
@@ -318,7 +320,7 @@
             this.groupBox1.Controls.Add(this.rdbServicioAlCuartoSi);
             this.groupBox1.Controls.Add(this.rdbServicioAlCuartoNo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(104, 274);
+            this.groupBox1.Location = new System.Drawing.Point(104, 323);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(214, 69);
             this.groupBox1.TabIndex = 26;
@@ -330,7 +332,7 @@
             this.groupBox2.Controls.Add(this.rdbAireAcondicionadoSi);
             this.groupBox2.Controls.Add(this.rdbAireAcondicionadoNo);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(107, 359);
+            this.groupBox2.Location = new System.Drawing.Point(107, 408);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(214, 69);
             this.groupBox2.TabIndex = 27;
@@ -342,7 +344,7 @@
             this.groupBox3.Controls.Add(this.rdbMiniBarSi);
             this.groupBox3.Controls.Add(this.rdbMiniBarNo);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(361, 286);
+            this.groupBox3.Location = new System.Drawing.Point(361, 335);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(147, 142);
             this.groupBox3.TabIndex = 28;
@@ -367,12 +369,32 @@
             this.txtLimitePersonas.Size = new System.Drawing.Size(229, 31);
             this.txtLimitePersonas.TabIndex = 30;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(102, 268);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 25);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Valor noche:";
+            // 
+            // txtValorNoche
+            // 
+            this.txtValorNoche.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorNoche.Location = new System.Drawing.Point(361, 268);
+            this.txtValorNoche.Name = "txtValorNoche";
+            this.txtValorNoche.Size = new System.Drawing.Size(229, 31);
+            this.txtValorNoche.TabIndex = 32;
+            // 
             // frmHabitacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1078, 697);
+            this.Controls.Add(this.txtValorNoche);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtLimitePersonas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox3);
@@ -440,5 +462,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtLimitePersonas;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtValorNoche;
     }
 }

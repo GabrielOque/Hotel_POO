@@ -118,6 +118,7 @@ namespace Hotel.Formulario
             txtNumHabitacion.Clear();
             txtTamanoHabitacion.Clear();
             txtLimitePersonas.Clear();
+            txtValorNoche.Clear();
             rdbServicioAlCuartoSi.Checked = false;
             rdbServicioAlCuartoNo.Checked = false;
             rdbMiniBarSi.Checked = false;
@@ -136,6 +137,7 @@ namespace Hotel.Formulario
             txtNumHabitacion.Enabled = false;
             txtLimitePersonas.Enabled= false;
             txtTamanoHabitacion.Enabled= false;
+            txtValorNoche.Enabled=false;
             cmbTipoHabitacion.Enabled = false;
             rdbAireAcondicionadoNo.Enabled = false;
             rdbAireAcondicionadoSi.Enabled = false;
@@ -150,6 +152,7 @@ namespace Hotel.Formulario
             txtNumHabitacion.Enabled = true;
             txtLimitePersonas.Enabled = true;
             txtTamanoHabitacion.Enabled = true;
+            txtValorNoche.Enabled = true;
             cmbTipoHabitacion.Enabled = true;
             rdbAireAcondicionadoNo.Enabled = true;
             rdbAireAcondicionadoSi.Enabled = true;
@@ -191,7 +194,7 @@ namespace Hotel.Formulario
                 if (rdbAireAcondicionadoSi.Checked) { aireAcondicionado = true; }
                 if (rdbServicioAlCuartoSi.Checked) { servicoCuerto = true; }
                 if (rdbMiniBarSi.Checked) { miniBar = true; }
-                cmd = new SqlCommand("insert into tblHabitacion values ('" + txtNumHabitacion.Text + "', '" + description + "' , '" + txtTamanoHabitacion.Text + "', '" + txtLimitePersonas.Text + "', '" + servicoCuerto + "', '" + aireAcondicionado + "', '" + miniBar + "')", cn.AbrirConexion());
+                cmd = new SqlCommand("insert into tblHabitacion values ('" + txtNumHabitacion.Text + "', '" + description + "' , '" + txtTamanoHabitacion.Text + "', '" + txtLimitePersonas.Text + "', '" + servicoCuerto + "', '" + aireAcondicionado + "', '" + miniBar + "', '" + txtValorNoche.Text + "')", cn.AbrirConexion());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cliente guardado");
             }
@@ -223,7 +226,7 @@ namespace Hotel.Formulario
                     description = 17;
                 }
 
-                SqlCommand cmd = new SqlCommand("UPDATE tblHabitacion SET IdHabitacion = @IdHabitacion, IdTipo = @IdTipo, TamanoMetros = @TamanoMetros, LimitePersonas = @LimitePersonas, servicioCuarto = @servicioCuarto, aireAcondicionado = @aireAcondicionado, miniBar = @miniBar WHERE IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
+                SqlCommand cmd = new SqlCommand("UPDATE tblHabitacion SET IdHabitacion = @IdHabitacion, IdTipo = @IdTipo, TamanoMetros = @TamanoMetros, LimitePersonas = @LimitePersonas, servicioCuarto = @servicioCuarto, aireAcondicionado = @aireAcondicionado, miniBar = @miniBar, @ValorNoche = ValorNoche WHERE IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
                 cmd.Parameters.AddWithValue("@IdHabitacion", txtNumHabitacion.Text);
                 cmd.Parameters.AddWithValue("@IdTipo", description);
                 cmd.Parameters.AddWithValue("@TamanoMetros", txtTamanoHabitacion.Text);
@@ -231,6 +234,7 @@ namespace Hotel.Formulario
                 cmd.Parameters.AddWithValue("@servicioCuarto", servicoCuerto);
                 cmd.Parameters.AddWithValue("@aireAcondicionado", aireAcondicionado);
                 cmd.Parameters.AddWithValue("@miniBar", miniBar);
+                cmd.Parameters.AddWithValue("@ValorNoche", txtValorNoche.Text);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Habitación modificada");
             }
@@ -264,6 +268,7 @@ namespace Hotel.Formulario
         {
             string dato = dt.Rows[i][1].ToString();
             txtNumHabitacion.Text = dt.Rows[i][0].ToString();
+            txtValorNoche.Text = dt.Rows[i][7].ToString();
             cmbTipoHabitacion.Text= dt.Rows[i][1].ToString();   
             switch (dato)
             {

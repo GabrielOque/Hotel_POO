@@ -36,8 +36,10 @@
             this.txtNumeroHabitaciones = new System.Windows.Forms.TextBox();
             this.dtgDisponibilidad = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnReservar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnNuevReserva = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDisponibilidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,14 +69,13 @@
             this.label1.Size = new System.Drawing.Size(218, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Numero de personas:";
-           
             // 
             // txtNumeroPersonas
             // 
             this.txtNumeroPersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroPersonas.Location = new System.Drawing.Point(282, 195);
             this.txtNumeroPersonas.Name = "txtNumeroPersonas";
-            this.txtNumeroPersonas.Size = new System.Drawing.Size(100, 31);
+            this.txtNumeroPersonas.Size = new System.Drawing.Size(145, 31);
             this.txtNumeroPersonas.TabIndex = 3;
             // 
             // label2
@@ -92,7 +93,7 @@
             this.txtNumeroHabitaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroHabitaciones.Location = new System.Drawing.Point(681, 198);
             this.txtNumeroHabitaciones.Name = "txtNumeroHabitaciones";
-            this.txtNumeroHabitaciones.Size = new System.Drawing.Size(100, 31);
+            this.txtNumeroHabitaciones.Size = new System.Drawing.Size(138, 31);
             this.txtNumeroHabitaciones.TabIndex = 5;
             this.txtNumeroHabitaciones.Leave += new System.EventHandler(this.txtNumeroHabitaciones_Leave);
             // 
@@ -101,7 +102,7 @@
             this.dtgDisponibilidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDisponibilidad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
-            this.dtgDisponibilidad.Location = new System.Drawing.Point(99, 316);
+            this.dtgDisponibilidad.Location = new System.Drawing.Point(99, 386);
             this.dtgDisponibilidad.Name = "dtgDisponibilidad";
             this.dtgDisponibilidad.RowHeadersVisible = false;
             this.dtgDisponibilidad.Size = new System.Drawing.Size(784, 197);
@@ -112,33 +113,53 @@
             this.Seleccionar.HeaderText = "Seleccionar";
             this.Seleccionar.Name = "Seleccionar";
             // 
-            // btnReservar
+            // btnLimpiar
             // 
-            this.btnReservar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservar.Location = new System.Drawing.Point(99, 565);
-            this.btnReservar.Name = "btnReservar";
-            this.btnReservar.Size = new System.Drawing.Size(137, 36);
-            this.btnReservar.TabIndex = 7;
-            this.btnReservar.Text = "Reservar";
-            this.btnReservar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(99, 607);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(137, 36);
+            this.btnLimpiar.TabIndex = 7;
+            this.btnLimpiar.Text = "Limiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // btnNuevReserva
             // 
             this.btnNuevReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevReserva.Location = new System.Drawing.Point(292, 566);
+            this.btnNuevReserva.Location = new System.Drawing.Point(282, 607);
             this.btnNuevReserva.Name = "btnNuevReserva";
             this.btnNuevReserva.Size = new System.Drawing.Size(213, 35);
             this.btnNuevReserva.TabIndex = 8;
-            this.btnNuevReserva.Text = "Nueva Reserva";
+            this.btnNuevReserva.Text = "Reservar";
             this.btnNuevReserva.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(63, 274);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 25);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Cedula:";
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.Location = new System.Drawing.Point(282, 268);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(145, 31);
+            this.txtCedula.TabIndex = 10;
             // 
             // frmReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 672);
+            this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNuevReserva);
-            this.Controls.Add(this.btnReservar);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dtgDisponibilidad);
             this.Controls.Add(this.txtNumeroHabitaciones);
             this.Controls.Add(this.label2);
@@ -164,8 +185,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNumeroHabitaciones;
         private System.Windows.Forms.DataGridView dtgDisponibilidad;
-        private System.Windows.Forms.Button btnReservar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnNuevReserva;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCedula;
     }
 }
