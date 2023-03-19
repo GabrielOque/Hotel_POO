@@ -175,7 +175,6 @@ namespace Hotel.Formulario
                 if (cmbTipoHabitacion.SelectedIndex == 0)
                 {
                     description = 14;
-                    MessageBox.Show("description");
 
                 }
                 if (cmbTipoHabitacion.SelectedIndex == 1)
@@ -194,7 +193,7 @@ namespace Hotel.Formulario
                 if (rdbAireAcondicionadoSi.Checked) { aireAcondicionado = true; }
                 if (rdbServicioAlCuartoSi.Checked) { servicoCuerto = true; }
                 if (rdbMiniBarSi.Checked) { miniBar = true; }
-                cmd = new SqlCommand("insert into tblHabitacion values ('" + txtNumHabitacion.Text + "', '" + description + "' , '" + txtTamanoHabitacion.Text + "', '" + txtLimitePersonas.Text + "', '" + servicoCuerto + "', '" + aireAcondicionado + "', '" + miniBar + "', '" + txtValorNoche.Text + "')", cn.AbrirConexion());
+                cmd = new SqlCommand("insert into tblHabitacion values ('" + txtNumHabitacion.Text + "', '" + description + "' , '" + txtTamanoHabitacion.Text + "', '" + txtLimitePersonas.Text + "', '" + servicoCuerto + "', '" + aireAcondicionado + "', '" + miniBar + "', '" + txtValorNoche.Text + "', '" + 1 + "')", cn.AbrirConexion());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cliente guardado");
             }
@@ -219,14 +218,21 @@ namespace Hotel.Formulario
                 }
                 if (cmbTipoHabitacion.SelectedIndex == 2)
                 {
-                    description = 14;
+                    description = 16;
                 }
                 if (cmbTipoHabitacion.SelectedIndex == 3)
                 {
                     description = 17;
                 }
 
-                SqlCommand cmd = new SqlCommand("UPDATE tblHabitacion SET IdHabitacion = @IdHabitacion, IdTipo = @IdTipo, TamanoMetros = @TamanoMetros, LimitePersonas = @LimitePersonas, servicioCuarto = @servicioCuarto, aireAcondicionado = @aireAcondicionado, miniBar = @miniBar, @ValorNoche = ValorNoche WHERE IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
+
+                SqlCommand cmd = new SqlCommand("select * from tblHabitacion", cn.AbrirConexion());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+
+                cmd = new SqlCommand("UPDATE tblHabitacion SET IdHabitacion = @IdHabitacion, IdTipo = @IdTipo, TamanoMetros = @TamanoMetros, LimitePersonas = @LimitePersonas, servicioCuarto = @servicioCuarto, aireAcondicionado = @aireAcondicionado, miniBar = @miniBar, ValorNoche = @ValorNoche, @estaDisponible = estaDisponible WHERE IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
                 cmd.Parameters.AddWithValue("@IdHabitacion", txtNumHabitacion.Text);
                 cmd.Parameters.AddWithValue("@IdTipo", description);
                 cmd.Parameters.AddWithValue("@TamanoMetros", txtTamanoHabitacion.Text);
@@ -235,6 +241,7 @@ namespace Hotel.Formulario
                 cmd.Parameters.AddWithValue("@aireAcondicionado", aireAcondicionado);
                 cmd.Parameters.AddWithValue("@miniBar", miniBar);
                 cmd.Parameters.AddWithValue("@ValorNoche", txtValorNoche.Text);
+                cmd.Parameters.AddWithValue("@estaDisponible", dt.Rows[0][8]);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Habitación modificada");
             }
@@ -242,10 +249,6 @@ namespace Hotel.Formulario
             Desabilita();
         }
 
-        private void cmbTipoHabitacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnModificacion_Click(object sender, EventArgs e)
         {
@@ -263,6 +266,7 @@ namespace Hotel.Formulario
             txtNumHabitacion.Enabled = true;
             txtNumHabitacion.Focus();
         }
+
 
         void Llenar(DataTable dt, int i)
         {

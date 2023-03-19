@@ -40,6 +40,10 @@
             this.btnNuevReserva = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDisponibilidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +126,7 @@
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnNuevReserva
             // 
@@ -132,6 +137,7 @@
             this.btnNuevReserva.TabIndex = 8;
             this.btnNuevReserva.Text = "Reservar";
             this.btnNuevReserva.UseVisualStyleBackColor = true;
+            this.btnNuevReserva.Click += new System.EventHandler(this.btnNuevReserva_Click);
             // 
             // label3
             // 
@@ -150,12 +156,53 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(145, 31);
             this.txtCedula.TabIndex = 10;
+            this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(564, 613);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 25);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Total:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(636, 609);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(138, 31);
+            this.txtTotal.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(503, 274);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 25);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(681, 271);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(138, 31);
+            this.txtNombre.TabIndex = 14;
             // 
             // frmReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 672);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNuevReserva);
@@ -169,7 +216,6 @@
             this.Controls.Add(this.dtpFechaIngreso);
             this.Name = "frmReserva";
             this.Text = "Reserva";
-            this.Load += new System.EventHandler(this.frmReserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDisponibilidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,5 +236,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }

@@ -120,14 +120,12 @@
             this.cmbTipoHabitacion.Name = "cmbTipoHabitacion";
             this.cmbTipoHabitacion.Size = new System.Drawing.Size(229, 33);
             this.cmbTipoHabitacion.TabIndex = 5;
-            this.cmbTipoHabitacion.ValueMember = "IdTipo";
-            this.cmbTipoHabitacion.SelectedIndexChanged += new System.EventHandler(this.cmbTipoHabitacion_SelectedIndexChanged);
             // 
             // rdbServicioAlCuartoSi
             // 
             this.rdbServicioAlCuartoSi.AutoSize = true;
             this.rdbServicioAlCuartoSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbServicioAlCuartoSi.Location = new System.Drawing.Point(20, 34);
+            this.rdbServicioAlCuartoSi.Location = new System.Drawing.Point(20, 35);
             this.rdbServicioAlCuartoSi.Name = "rdbServicioAlCuartoSi";
             this.rdbServicioAlCuartoSi.Size = new System.Drawing.Size(46, 29);
             this.rdbServicioAlCuartoSi.TabIndex = 9;

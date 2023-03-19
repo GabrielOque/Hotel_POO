@@ -13,3 +13,9 @@ C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.f
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmHabitacion.resources
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmMenuPrincipal.resources
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmReserva.resources
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmEstadoDisponible.resources
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmEstadoOcupado.resources
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\bin\Debug\Hotel.exe.manifest
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\bin\Debug\Hotel.application
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.exe.manifest
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.application

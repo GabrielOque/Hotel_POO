@@ -39,24 +39,25 @@ namespace Hotel
 
 
             //Validar el iUngreso
-            if(dt.Rows.Count < 3)
+            if (dt.Rows.Count<=0)
             {
                 contador++;
                 MessageBox.Show("Usuario o contraseña incorrectos, llevas  " + contador + " intentos");
                 txtContrasena.Clear();
                 txtUsuario.Clear();
-                if (contador >= 3) {
+                if (contador >= 3)
+                {
                     MessageBox.Show("No puedes ingresar ¡Datos incorrectos!");
                     this.Close();
                 }
             }
+
             else
             {
                 frmMenuPrincipal frm = new frmMenuPrincipal();
                 frm.Show();
                 this.Hide();
                 timer1.Stop();
-
             }
 
         }
@@ -64,6 +65,11 @@ namespace Hotel
         private void Form_LogIn_Load(object sender, EventArgs e)
         {
             timer1.Start();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
