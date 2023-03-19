@@ -7,7 +7,7 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Hotel.exe.manifest" size="3511">
+    <dependentAssembly dependencyType="install" codebase="Application Files\Hotel_1_0_0_0\Hotel.exe.manifest" size="3511">
       <assemblyIdentity name="Hotel.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>

@@ -42,6 +42,7 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.lblAdministrador = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.pnlAdmin.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.lblAdministrador);
             this.pnlMenu.Controls.Add(this.btnCerrar);
             this.pnlMenu.Controls.Add(this.pnlCliente);
             this.pnlMenu.Controls.Add(this.btnCliente);
@@ -67,7 +69,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(43, 706);
+            this.btnCerrar.Location = new System.Drawing.Point(41, 668);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(113, 33);
             this.btnCerrar.TabIndex = 6;
@@ -198,6 +200,16 @@
             this.pnlContenedor.Size = new System.Drawing.Size(1131, 795);
             this.pnlContenedor.TabIndex = 1;
             // 
+            // lblAdministrador
+            // 
+            this.lblAdministrador.AutoSize = true;
+            this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrador.Location = new System.Drawing.Point(38, 733);
+            this.lblAdministrador.Name = "lblAdministrador";
+            this.lblAdministrador.Size = new System.Drawing.Size(0, 25);
+            this.lblAdministrador.TabIndex = 8;
+            this.lblAdministrador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +221,7 @@
             this.Name = "frmMenuPrincipal";
             this.Text = "frmMenuPrincipal";
             this.pnlMenu.ResumeLayout(false);
+            this.pnlMenu.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.pnlAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -230,5 +243,6 @@
         private System.Windows.Forms.Button btnCrud;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblAdministrador;
     }
 }

@@ -54,6 +54,10 @@ namespace Hotel
 
             else
             {
+                cmd = new SqlCommand("UPDATE tblAcceso SET acceso = @acceso", cn.AbrirConexion());
+                cmd.Parameters.AddWithValue("@acceso", txtUsuario.Text);
+                cmd.ExecuteNonQuery();
+
                 frmMenuPrincipal frm = new frmMenuPrincipal();
                 frm.Show();
                 this.Hide();

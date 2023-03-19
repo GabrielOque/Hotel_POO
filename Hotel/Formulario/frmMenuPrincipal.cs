@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hotel.Clases;
 
+
 namespace Hotel.Formulario
 {
     public partial class frmMenuPrincipal : Form
     {
+        cConexion cn; //Variable de conexion
+        SqlCommand cmd; //Para traer los comandos de sql
+        SqlDataAdapter da; //Se necesita para las consultas
+        DataTable dt;
         public frmMenuPrincipal()
         {
             InitializeComponent();
             personalizarDiseno();
+            cn = new cConexion();
+            cmd = new SqlCommand("select * from tblAcceso", cn.AbrirConexion());
+            da = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            da.Fill(dt); //LLena dt con la consulta de cmd
+            lblAdministrador.Text= dt.Rows[0][0].ToString();
+
         }
         void personalizarDiseno()
         {
