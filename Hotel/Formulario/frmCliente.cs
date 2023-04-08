@@ -19,22 +19,40 @@ namespace Hotel.Formulario
         SqlCommand cmd; //Para traer los comandos de sql
         SqlDataAdapter da; //Se necesita para las consultas
         DataTable dt;
-        int contador, i, boton;
+        int contador, i, boton, j;
 
         public frmCliente()
         {
             InitializeComponent();
             cn = new cConexion();
-            i = 0; boton = 0;
+            i = 0; boton = 0; j = 0 ;
             cmd = new SqlCommand("select * from tblCliente", cn.AbrirConexion());
             da = new SqlDataAdapter(cmd);
             dt = new DataTable();
             da.Fill(dt); //LLena dt con la consulta de cmd
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        void Limpiar()
         {
+            txtCedula.Clear();
+            txtNRSoacial.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtPProcedencia.Clear();
+            txtCProcedencia.Clear();
+        }
 
+
+        void Llenar(DataTable dt, int i)
+        {
+            txtCedula.Text = dt.Rows[i][0].ToString();
+            txtNRSoacial.Text = dt.Rows[i][1].ToString();
+            txtDireccion.Text = dt.Rows[i][2].ToString();
+            txtTelefono.Text = dt.Rows[i][3].ToString();
+            txtPProcedencia.Text = dt.Rows[i][4].ToString();
+            txtCProcedencia.Text = dt.Rows[i][5].ToString();
+            //Almcena la cantidad de registros de la tabla
+            contador = dt.Rows.Count;
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -114,6 +132,7 @@ namespace Hotel.Formulario
             txtCedula.Focus();
 
 
+
         }
 
         private void btnModificacion_Click(object sender, EventArgs e)
@@ -126,6 +145,21 @@ namespace Hotel.Formulario
             
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            Llenar(dt, i);
+            Desabilita();
+            if (btnGuardar.Visible == true)
+            {
+                btnGuardar.Visible = false;
+            }
+        }
+
         private void btnRetiro_Click(object sender, EventArgs e)
         {
             boton = 4;
@@ -136,69 +170,70 @@ namespace Hotel.Formulario
 
         private void txtCedula_Leave(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("select * from tblCliente where cedula= '" + txtCedula.Text + "'", cn.AbrirConexion());
-            da = new SqlDataAdapter(cmd);
-            dt = new DataTable();
-            da.Fill(dt); //LLena dt con la consulta de cmd
+
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM tblCliente WHERE cedula = '" + txtCedula.Text + "'", cn.AbrirConexion());
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+            DataTable dt1 = new DataTable();
+            da1.Fill(dt1);
+            i = 0;
 
             switch (boton)
             {
                 case 1:
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
-                        MessageBox.Show("No existe");
+                        MessageBox.Show("El registro seleccionado no existe.");
                         txtCedula.Clear();
                         txtCedula.Focus();
                     }
                     else
                     {
-                        Llenar(dt, 0);
+                        Llenar(dt1, i);
+                        Desabilita();
                     }
                     break;
-                    
                 case 2:
-                    if(dt.Rows.Count > 0)
+                    if (dt1.Rows.Count != 0)
                     {
-                        
-                        Llenar(dt, 0);
-                        MessageBox.Show("La cedula ya estas registrada");
+                        MessageBox.Show("El registro existe.");
+                        Llenar(dt1, i);
+                        Desabilita();
                     }
-                   
                     break;
                 case 3:
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
-                        MessageBox.Show("No existe");
+                        MessageBox.Show("El registro no existe.");
                         txtCedula.Clear();
                         txtCedula.Focus();
                     }
                     else
                     {
-                        Llenar(dt, i);
+                        Llenar(dt1, i);
+                        Habilita();
                     }
                     break;
-
                 case 4:
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
-                        MessageBox.Show("No existe");
+                        MessageBox.Show("No existe el registro");
                         txtCedula.Clear();
                         txtCedula.Focus();
                     }
                     else
                     {
-                        Llenar(dt, i);
-                        if (MessageBox.Show("¿Desea eliminar el cliente?","", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        Llenar(dt1, i);
+                        if (MessageBox.Show("¿Esta seguro que desea borrar el cliente?", "¡Alerta!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            SqlCommand cm = new SqlCommand("DELETE FROM tblCliente WHERE cedula='" + txtCedula.Text + "'", cn.AbrirConexion());
+                            SqlCommand cm = new SqlCommand("DELETE FROM tblCliente WHERE cedula = '" + txtCedula.Text + "'", cn.AbrirConexion());
                             cm.ExecuteNonQuery();
                         }
                     }
                     break;
-
-
             }
+            txtCedula.Enabled = false;
         }
+
         
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -226,40 +261,6 @@ namespace Hotel.Formulario
             Desabilita();
             
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        void Limpiar()
-        {
-            txtCedula.Clear();
-            txtNRSoacial.Clear();
-            txtDireccion.Clear();   
-            txtTelefono.Clear();
-            txtPProcedencia.Clear();
-            txtCProcedencia.Clear();
-        }
-        
-
-        void Llenar(DataTable dt, int i)
-        {
-            txtCedula.Text = dt.Rows[i][0].ToString();
-            txtNRSoacial.Text = dt.Rows[i][1].ToString();
-            txtDireccion.Text = dt.Rows[i][2].ToString();
-            txtTelefono.Text = dt.Rows[i][3].ToString();
-            txtPProcedencia.Text = dt.Rows[i][4].ToString();
-            txtCProcedencia.Text = dt.Rows[i][5].ToString();
-            //Almcena la cantidad de registros de la tabla
-            contador = dt.Rows.Count;
-         
-            
-        }
+       
     }
 }
