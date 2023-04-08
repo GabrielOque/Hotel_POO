@@ -40,8 +40,6 @@
             this.btnNuevReserva = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDisponibilidad)).BeginInit();
@@ -50,17 +48,19 @@
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(63, 103);
+            this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(120, 103);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
-            this.dtpFechaIngreso.Size = new System.Drawing.Size(405, 31);
+            this.dtpFechaIngreso.Size = new System.Drawing.Size(173, 31);
             this.dtpFechaIngreso.TabIndex = 0;
             // 
             // dtpFechaSalida
             // 
             this.dtpFechaSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaSalida.Location = new System.Drawing.Point(508, 103);
+            this.dtpFechaSalida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaSalida.Location = new System.Drawing.Point(569, 103);
             this.dtpFechaSalida.Name = "dtpFechaSalida";
-            this.dtpFechaSalida.Size = new System.Drawing.Size(401, 31);
+            this.dtpFechaSalida.Size = new System.Drawing.Size(207, 31);
             this.dtpFechaSalida.TabIndex = 1;
             this.dtpFechaSalida.ValueChanged += new System.EventHandler(this.dtpFechaSalida_ValueChanged);
             // 
@@ -109,7 +109,7 @@
             this.dtgDisponibilidad.Location = new System.Drawing.Point(99, 386);
             this.dtgDisponibilidad.Name = "dtgDisponibilidad";
             this.dtgDisponibilidad.RowHeadersVisible = false;
-            this.dtgDisponibilidad.Size = new System.Drawing.Size(784, 197);
+            this.dtgDisponibilidad.Size = new System.Drawing.Size(810, 197);
             this.dtgDisponibilidad.TabIndex = 6;
             // 
             // Seleccionar
@@ -156,25 +156,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(145, 31);
             this.txtCedula.TabIndex = 10;
-            this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(564, 613);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 25);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Total:";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(636, 609);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(138, 31);
-            this.txtTotal.TabIndex = 12;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // label5
             // 
@@ -201,8 +183,6 @@
             this.ClientSize = new System.Drawing.Size(962, 672);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNuevReserva);
@@ -216,6 +196,7 @@
             this.Controls.Add(this.dtpFechaIngreso);
             this.Name = "frmReserva";
             this.Text = "Reserva";
+            this.Load += new System.EventHandler(this.frmReserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDisponibilidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -236,8 +217,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNombre;
     }

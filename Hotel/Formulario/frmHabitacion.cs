@@ -5,10 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Hotel.Formulario
 {
@@ -19,6 +22,7 @@ namespace Hotel.Formulario
         SqlDataAdapter da; //Se necesita para las consultas
         DataTable dt;
         int contador, i, boton;
+        Image imagenSeleccionada;
         public frmHabitacion()
         {
             InitializeComponent();
@@ -78,7 +82,13 @@ namespace Hotel.Formulario
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Llenar(dt, i);
+            Desabilita();
+
+            if (btnGuardar.Visible == true)
+            {
+                btnGuardar.Visible = false;
+            }
         }
 
         void llenarCombo()
@@ -189,13 +199,32 @@ namespace Hotel.Formulario
                 {
                     description = 17;
                 }
-
                 if (rdbAireAcondicionadoSi.Checked) { aireAcondicionado = true; }
                 if (rdbServicioAlCuartoSi.Checked) { servicoCuerto = true; }
                 if (rdbMiniBarSi.Checked) { miniBar = true; }
-                cmd = new SqlCommand("insert into tblHabitacion values ('" + txtNumHabitacion.Text + "', '" + description + "' , '" + txtTamanoHabitacion.Text + "', '" + txtLimitePersonas.Text + "', '" + servicoCuerto + "', '" + aireAcondicionado + "', '" + miniBar + "', '" + txtValorNoche.Text + "', '" + 1 + "')", cn.AbrirConexion());
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Cliente guardado");
+
+                if (string.IsNullOrEmpty(txtRuta.Text)) {
+                    MessageBox.Show("Se debe de poner una imagen");
+                }
+                else
+                {
+                    byte[] img = System.IO.File.ReadAllBytes(txtRuta.Text);
+
+                    SqlCommand cmd = new SqlCommand("INSERT INTO tblHabitacion (IdHabitacion, IdTipo, tamanoMetros, LimitePersonas, ServicioCuarto, AireAcondicionado, Minibar, valorNoche, estaDisponible, DireccionImg, Imagen) VALUES(@IdHabitacion, @IdTipo, @tamanoMetros, @LimitePersonas, @ServicioCuarto, @AireAcondicionado, @Minibar, @valorNoche, 1, @DireccionImg , @Imagen)", cn.AbrirConexion());
+                    cmd.Parameters.AddWithValue("@IdHabitacion", txtNumHabitacion.Text);
+                    cmd.Parameters.AddWithValue("@IdTipo", description);
+                    cmd.Parameters.AddWithValue("@tamanoMetros", txtTamanoHabitacion.Text);
+                    cmd.Parameters.AddWithValue("@LimitePersonas", txtLimitePersonas.Text);
+                    cmd.Parameters.AddWithValue("@ServicioCuarto", servicoCuerto);
+                    cmd.Parameters.AddWithValue("@AireAcondicionado", aireAcondicionado);
+                    cmd.Parameters.AddWithValue("@Minibar", miniBar);
+                    cmd.Parameters.AddWithValue("@valorNoche", txtValorNoche.Text);
+                    cmd.Parameters.AddWithValue("@DireccionImg", txtRuta.Text);
+                    cmd.Parameters.AddWithValue("@Imagen", img);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Habitacion " + txtNumHabitacion.Text + " guardada exitosamente.", "Guardar Habitacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             if (boton == 3)
             {
@@ -231,19 +260,31 @@ namespace Hotel.Formulario
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                if (string.IsNullOrEmpty(txtRuta.Text))
+                {
+                    MessageBox.Show("Se debe de poner una imagen");
+                }
+                else
+                {
+                    byte[] img = System.IO.File.ReadAllBytes(txtRuta.Text);
+                    cmd = new SqlCommand("UPDATE tblHabitacion SET IdHabitacion = @IdHabitacion, IdTipo = @IdTipo, TamanoMetros = @TamanoMetros, LimitePersonas = @LimitePersonas, servicioCuarto = @servicioCuarto, aireAcondicionado = @aireAcondicionado, miniBar = @miniBar, ValorNoche = @ValorNoche, Imagen = @Imagen, DireccionImg = @DireccionImg  WHERE IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
+                    cmd.Parameters.AddWithValue("@IdHabitacion", txtNumHabitacion.Text);
+                    cmd.Parameters.AddWithValue("@IdTipo", description);
+                    cmd.Parameters.AddWithValue("@TamanoMetros", txtTamanoHabitacion.Text);
+                    cmd.Parameters.AddWithValue("@LimitePersonas", txtLimitePersonas.Text);
+                    cmd.Parameters.AddWithValue("@servicioCuarto", servicoCuerto);
+                    cmd.Parameters.AddWithValue("@aireAcondicionado", aireAcondicionado);
+                    cmd.Parameters.AddWithValue("@miniBar", miniBar);
+                    cmd.Parameters.AddWithValue("@ValorNoche", txtValorNoche.Text);
+                    cmd.Parameters.AddWithValue("@Imagen", img);
+                    cmd.Parameters.AddWithValue("@DireccionImg", txtRuta.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Habitación modificada");
+                }
+               
 
-                cmd = new SqlCommand("UPDATE tblHabitacion SET IdHabitacion = @IdHabitacion, IdTipo = @IdTipo, TamanoMetros = @TamanoMetros, LimitePersonas = @LimitePersonas, servicioCuarto = @servicioCuarto, aireAcondicionado = @aireAcondicionado, miniBar = @miniBar, ValorNoche = @ValorNoche, @estaDisponible = estaDisponible WHERE IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
-                cmd.Parameters.AddWithValue("@IdHabitacion", txtNumHabitacion.Text);
-                cmd.Parameters.AddWithValue("@IdTipo", description);
-                cmd.Parameters.AddWithValue("@TamanoMetros", txtTamanoHabitacion.Text);
-                cmd.Parameters.AddWithValue("@LimitePersonas", txtLimitePersonas.Text);
-                cmd.Parameters.AddWithValue("@servicioCuarto", servicoCuerto);
-                cmd.Parameters.AddWithValue("@aireAcondicionado", aireAcondicionado);
-                cmd.Parameters.AddWithValue("@miniBar", miniBar);
-                cmd.Parameters.AddWithValue("@ValorNoche", txtValorNoche.Text);
-                cmd.Parameters.AddWithValue("@estaDisponible", dt.Rows[0][8]);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Habitación modificada");
+
+                
             }
             btnGuardar.Visible = false;
             Desabilita();
@@ -267,6 +308,21 @@ namespace Hotel.Formulario
             txtNumHabitacion.Focus();
         }
 
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            // Abrir un cuadro de diálogo de selección de archivo
+            DialogResult r = dlgHabitacion.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                txtRuta.Text = dlgHabitacion.FileName;
+                pcbImagen.Load(txtRuta.Text);
+            }
+        }
+
+        private void txtNumHabitacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         void Llenar(DataTable dt, int i)
         {
@@ -320,18 +376,36 @@ namespace Hotel.Formulario
             }
             //Desabilita();
 
+            // Crear la consulta SQL
+
+            txtRuta.Text = dt.Rows[i][10].ToString();
+            string rutaArchivo;
+            // Verificar que la posicion en la base de datos sea diferente de nulo y que la informacion que contenga sea la adecuada para mostrar como imagen
+            if (dt.Rows[i][9] != null && dt.Rows[i][9] != DBNull.Value && dt.Rows[i][9] is byte[])
+            {
+                byte[] imgBytes = (byte[])dt.Rows[i][9];
+                MemoryStream ms = new MemoryStream(imgBytes);
+                Image img = Image.FromStream(ms);
+                pcbImagen.Image = img;
+            }
+            else
+            {
+                rutaArchivo = @"C:\Users\USUARIO\Documents\IUE\POO\Proyecto 2\Hotel\default_image.png";
+                pcbImagen.Load(rutaArchivo);
+            }
+
         }
         private void txtNumHabitacion_Leave(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("select * from tblHabitacion where IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
-            da = new SqlDataAdapter(cmd);
-            dt = new DataTable();
-            da.Fill(dt);
-
+            SqlCommand cmd1 = new SqlCommand("select * from tblHabitacion where IdHabitacion = '" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+            DataTable dt1 = new DataTable();
+            da1.Fill(dt1);
+            i = 0;
             switch (boton)
             {
                 case 1:
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
                         MessageBox.Show("No existe");
                         txtNumHabitacion.Clear();
@@ -339,19 +413,20 @@ namespace Hotel.Formulario
                     }
                     else
                     {
-                        Llenar(dt, 0);
+                        Llenar(dt1, i);
+                        Desabilita();
                     }
                     break;
                 case 2:
-                    if(dt.Rows.Count > 0)
+                    if(dt1.Rows.Count > 0)
                     {
-                        Llenar(dt, i);
+                        Llenar(dt1, i);
                         MessageBox.Show("La cedula ya estas registrada");
                         
                     }
                     break;
                 case 3:
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
                         MessageBox.Show("No existe");
                         txtNumHabitacion.Clear();
@@ -359,20 +434,20 @@ namespace Hotel.Formulario
                     }
                     else
                     {
-                        Llenar(dt, 0);
+                        Llenar(dt1, i);
                     }
                     break;
                 case 4:
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
                         MessageBox.Show("No existe");
                         txtNumHabitacion.Clear();
                         txtNumHabitacion.Focus();
-                        Llenar(dt, 0);
+                        Llenar(dt1, 0);
                     }
                     else
                     {
-                        Llenar(dt, i);
+                        Llenar(dt1, i);
                         if (MessageBox.Show("¿Desea eliminar el cliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             SqlCommand cm = new SqlCommand("DELETE FROM tblHabitacion WHERE IdHabitacion='" + txtNumHabitacion.Text + "'", cn.AbrirConexion());
