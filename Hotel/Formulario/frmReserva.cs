@@ -159,5 +159,10 @@ namespace Hotel.Formulario
             dtpFechaIngreso.Value = DateTime.Now;
             dtpFechaSalida.Value = DateTime.Today.AddDays(1);
         }
+
+        private void txtNumeroPersonas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

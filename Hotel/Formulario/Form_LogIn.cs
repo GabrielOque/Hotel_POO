@@ -60,9 +60,9 @@ namespace Hotel
                 cmd.Parameters.AddWithValue("@acceso", txtUsuario.Text);
                 cmd.ExecuteNonQuery();
 
-                SqlCommand sesion = new SqlCommand("UPDATE tblHabitacion SET estaDisponible = 1 WHERE IdHabitacion IN (SELECT IdHabitacion FROM tblReserva_Habitacion JOIN tblReserva ON tblReserva_Habitacion.IdReserva = tblReserva.IdReserva WHERE tblReserva.fechaSalida < @fechaSesion)", cn.AbrirConexion());
-                sesion.Parameters.AddWithValue("@fechaSesion", fechaSesion);
-                sesion.ExecuteNonQuery();
+                //SqlCommand sesion = new SqlCommand("UPDATE tblHabitacion SET estaDisponible = 1 WHERE IdHabitacion IN (SELECT IdHabitacion FROM tblReserva_Habitacion JOIN tblReserva ON tblReserva_Habitacion.IdReserva = tblReserva.IdReserva WHERE tblReserva.fechaSalida < @fechaSesion)", cn.AbrirConexion());
+                //sesion.Parameters.AddWithValue("@fechaSesion", fechaSesion);
+                //sesion.ExecuteNonQuery();
 
 
                 frmMenuPrincipal frm = new frmMenuPrincipal();
@@ -80,7 +80,7 @@ namespace Hotel
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }

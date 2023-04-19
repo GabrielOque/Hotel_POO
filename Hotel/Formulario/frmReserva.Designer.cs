@@ -81,6 +81,7 @@
             this.txtNumeroPersonas.Name = "txtNumeroPersonas";
             this.txtNumeroPersonas.Size = new System.Drawing.Size(145, 31);
             this.txtNumeroPersonas.TabIndex = 3;
+            this.txtNumeroPersonas.TextChanged += new System.EventHandler(this.txtNumeroPersonas_TextChanged);
             // 
             // label2
             // 

@@ -71,6 +71,11 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Word %281%29, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\Microsoft.Office.Interop.Word (1).dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -97,6 +102,12 @@
     <Compile Include="Formulario\frmCliente.Designer.cs">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\frmConsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmConsumo.Designer.cs">
+      <DependentUpon>frmConsumo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\frmEstadoDisponible.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +132,12 @@
     <Compile Include="Formulario\frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\frmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmProducto.Designer.cs">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\frmReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +157,9 @@
     <EmbeddedResource Include="Formulario\frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\frmConsumo.resx">
+      <DependentUpon>frmConsumo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formulario\frmEstadoDisponible.resx">
       <DependentUpon>frmEstadoDisponible.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\frmProducto.resx">
+      <DependentUpon>frmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\frmReserva.resx">
       <DependentUpon>frmReserva.cs</DependentUpon>
@@ -196,6 +219,7 @@
     <None Include="Resources\exit.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\factura.docx" />
     <None Include="Resources\profile.png" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +241,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Microsoft.Office.Interop.Word %281%29.dll" />
     <Content Include="review.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
