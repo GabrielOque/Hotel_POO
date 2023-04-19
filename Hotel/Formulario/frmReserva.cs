@@ -158,11 +158,14 @@ namespace Hotel.Formulario
             txtCedula.Focus();
             dtpFechaIngreso.Value = DateTime.Now;
             dtpFechaSalida.Value = DateTime.Today.AddDays(1);
+<<<<<<< HEAD
         }
 
         private void txtNumeroPersonas_TextChanged(object sender, EventArgs e)
         {
 
+=======
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
         }
     }
 }
