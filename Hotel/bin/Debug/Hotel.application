@@ -14,14 +14,22 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" codebase="Hotel.exe.manifest" size="4404">
+=======
+    <dependentAssembly dependencyType="install" codebase="Hotel.exe.manifest" size="3987">
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
       <assemblyIdentity name="Hotel.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>ndj3r43aeAZz/+HcuePonboF7atg1A5I5zSMtS7ba+M=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>muktkm/TmkVeKo+0cTeRJ9M4wUMD2D8rL9P18B3qm3c=</dsig:DigestValue>
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
       </hash>
     </dependentAssembly>
   </dependency>

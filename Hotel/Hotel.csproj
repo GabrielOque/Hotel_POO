@@ -241,7 +241,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="Microsoft.Office.Interop.Word %281%29.dll" />
+=======
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
     <Content Include="review.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
