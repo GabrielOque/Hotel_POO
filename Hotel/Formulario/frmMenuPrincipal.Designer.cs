@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.lblAdministrador = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.btnReserva = new System.Windows.Forms.Button();
@@ -42,7 +43,8 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
-            this.lblAdministrador = new System.Windows.Forms.Label();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnConsumo = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.pnlAdmin.SuspendLayout();
@@ -63,6 +65,16 @@
             this.pnlMenu.Size = new System.Drawing.Size(200, 795);
             this.pnlMenu.TabIndex = 0;
             // 
+            // lblAdministrador
+            // 
+            this.lblAdministrador.AutoSize = true;
+            this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrador.Location = new System.Drawing.Point(38, 733);
+            this.lblAdministrador.Name = "lblAdministrador";
+            this.lblAdministrador.Size = new System.Drawing.Size(0, 25);
+            this.lblAdministrador.TabIndex = 8;
+            this.lblAdministrador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -82,9 +94,9 @@
             this.pnlCliente.Controls.Add(this.btnReserva);
             this.pnlCliente.Controls.Add(this.btnCrud);
             this.pnlCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCliente.Location = new System.Drawing.Point(0, 301);
+            this.pnlCliente.Location = new System.Drawing.Point(0, 381);
             this.pnlCliente.Name = "pnlCliente";
-            this.pnlCliente.Size = new System.Drawing.Size(200, 71);
+            this.pnlCliente.Size = new System.Drawing.Size(200, 81);
             this.pnlCliente.TabIndex = 5;
             // 
             // btnReserva
@@ -115,7 +127,7 @@
             // 
             this.btnCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCliente.Location = new System.Drawing.Point(0, 253);
+            this.btnCliente.Location = new System.Drawing.Point(0, 333);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(200, 48);
             this.btnCliente.TabIndex = 4;
@@ -125,13 +137,15 @@
             // 
             // pnlAdmin
             // 
+            this.pnlAdmin.Controls.Add(this.btnConsumo);
+            this.pnlAdmin.Controls.Add(this.btnProducto);
             this.pnlAdmin.Controls.Add(this.button3);
             this.pnlAdmin.Controls.Add(this.button2);
             this.pnlAdmin.Controls.Add(this.button1);
             this.pnlAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAdmin.Location = new System.Drawing.Point(0, 148);
             this.pnlAdmin.Name = "pnlAdmin";
-            this.pnlAdmin.Size = new System.Drawing.Size(200, 105);
+            this.pnlAdmin.Size = new System.Drawing.Size(200, 185);
             this.pnlAdmin.TabIndex = 2;
             // 
             // button3
@@ -200,15 +214,29 @@
             this.pnlContenedor.Size = new System.Drawing.Size(1131, 795);
             this.pnlContenedor.TabIndex = 1;
             // 
-            // lblAdministrador
+            // btnProducto
             // 
-            this.lblAdministrador.AutoSize = true;
-            this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrador.Location = new System.Drawing.Point(38, 733);
-            this.lblAdministrador.Name = "lblAdministrador";
-            this.lblAdministrador.Size = new System.Drawing.Size(0, 25);
-            this.lblAdministrador.TabIndex = 8;
-            this.lblAdministrador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.Location = new System.Drawing.Point(0, 102);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(200, 35);
+            this.btnProducto.TabIndex = 3;
+            this.btnProducto.Text = "Crear Producto";
+            this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
+            // btnConsumo
+            // 
+            this.btnConsumo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsumo.Location = new System.Drawing.Point(0, 137);
+            this.btnConsumo.Name = "btnConsumo";
+            this.btnConsumo.Size = new System.Drawing.Size(200, 35);
+            this.btnConsumo.TabIndex = 4;
+            this.btnConsumo.Text = "Registrar consumo";
+            this.btnConsumo.UseVisualStyleBackColor = true;
+            this.btnConsumo.Click += new System.EventHandler(this.btnConsumo_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -219,6 +247,7 @@
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuPrincipal";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
@@ -244,5 +273,7 @@
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblAdministrador;
+        private System.Windows.Forms.Button btnConsumo;
+        private System.Windows.Forms.Button btnProducto;
     }
 }

@@ -19,3 +19,5 @@ C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\bin\Debug\Hotel.exe.manifest
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\bin\Debug\Hotel.application
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.exe.manifest
 C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.application
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmConsumo.resources
+C:\Users\Usuario\Documents\IUE\POO\Proyecto 2\Hotel\obj\Debug\Hotel.Formulario.frmProducto.resources

@@ -43,14 +43,22 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hotel.exe" size="354816">
+=======
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hotel.exe" size="333312">
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
       <assemblyIdentity name="Hotel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
+        <dsig:DigestValue>H9GyxEK8EV4GGnFiaEP5zpkYN0rsGs3AGZWjq1Ioku8=</dsig:DigestValue>
+=======
         <dsig:DigestValue>KwqS6XdL2yVX1nwm4ovwSD/ahdYoTayvAuXZ1rcTiHM=</dsig:DigestValue>
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,6 +71,18 @@
       <dsig:DigestValue>9QUy5EI0mAzeXZ46Glt4z/dlNLasEnjLhJrdXiumz3g=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD
+  <file name="Microsoft.Office.Interop.Word (1).dll" size="940728">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ZtbyR+PK6HXDyG3RbqGqNRJmO4qoYmmEAHv1NDMmu6o=</dsig:DigestValue>
+    </hash>
+  </file>
+=======
+>>>>>>> ed4851f1f2d75005f417e56e6ffa69b8a93f17e5
   <file name="review.ico" size="7653">
     <hash>
       <dsig:Transforms>

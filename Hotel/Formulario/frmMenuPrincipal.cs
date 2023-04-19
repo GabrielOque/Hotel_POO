@@ -125,6 +125,18 @@ namespace Hotel.Formulario
         {
             abrirFormularioHijos(new frmEstadoOcupado());
             ocultarSubmenu();
-        } 
+        }
+
+        private void btnProducto_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijos(new frmProducto());
+            ocultarSubmenu();
+        }
+
+        private void btnConsumo_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijos(new frmConsumo());
+            ocultarSubmenu();
+        }
     }
 }
